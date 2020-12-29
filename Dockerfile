@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Adam Cecile <acecile@le-vert.net>
+MAINTAINER Josmar Barbosa <barbosajaf@gmail.com>
 
 ENV TERM xterm
 ENV HOSTNAME bminer-cuda.local
@@ -22,6 +22,8 @@ RUN apt update && apt -y -o 'Dpkg::Options::=--force-confdef' -o 'Dpkg::Options:
 #    && chmod 0755 /root/ && chmod 0755 /root/miner
 
 RUN mkdir /root/miner && chmod 0755 /root/ && chmod 0755 /root/miner
+RUN git config --global user.name "M4N0V3Y"
+RUN git config --global user.email "barbosajaf@gmail.com"
 RUN git clone ${URL} /root/miner
 RUN cd /root/miner
 # Pushes the mirror to the new GitHub repository
