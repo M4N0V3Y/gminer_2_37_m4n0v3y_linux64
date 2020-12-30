@@ -15,19 +15,24 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
-RUN apt update && apt -y -o 'Dpkg::Options::=--force-confdef' -o 'Dpkg::Options::=--force-confold' --no-install-recommends install wget ca-certificates bsdtar && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt -y -o 'Dpkg::Options::=--force-confdef' -o 'Dpkg::Options::=--force-confold' --no-install-recommends install wget ca-certificates bsdtar \
+    build-essential autoconf autogen libtool libreadline6-dev libglpk-dev git
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN apt update
 
 # Install binary
 # RUN wget ${URL} -O- | bsdtar -xvf- --include='miner' -O > /root/miner \
 #    && chmod 0755 /root/ && chmod 0755 /root/miner
 
-RUN mkdir /root/miner && chmod 0755 /root/ && chmod 0755 /root/miner
+RUN mkdir /root/miner
 RUN git config --global user.name "M4N0V3Y"
 RUN git config --global user.email "barbosajaf@gmail.com"
 RUN git clone ${URL} /root/miner
-RUN cd /root/miner
+RUN chmod 0755 /root/ && chmod 0755 /root/miner
+RUN cd /root/miner  && chmod +x mine_grin32.sh && chmod +x miner && cd ..
 # Pushes the mirror to the new GitHub repository
-RUN git push --mirror ${URL} && cd ..
+# RUN git push --mirror ${URL} && cd ..
 
 
 # Workaround GMiner not finding libnvml
@@ -47,4 +52,3 @@ ENV LD_LIBRARY_PATH /root:${LD_LIBRARY_PATH}
 
 ENTRYPOINT ["gminer"]
 RUN /root/miner/mine_grin32.sh
-
