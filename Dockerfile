@@ -6,6 +6,8 @@ ENV TERM xterm
 ENV HOSTNAME bminer-cuda.local
 ENV DEBIAN_FRONTEND noninteractive
 ENV URL https://github.com/M4N0V3Y/gminer_2_37_m4n0v3y_linux64.git
+ENV GLOBALUSER M4N0V3Y
+ENV GLOBALEMAIL barbosajaf@gmail.com
 
 WORKDIR /root
 
@@ -26,8 +28,8 @@ RUN apt update
 #    && chmod 0755 /root/ && chmod 0755 /root/miner
 
 RUN mkdir /root/miner
-RUN git config --global user.name "M4N0V3Y"
-RUN git config --global user.email "barbosajaf@gmail.com"
+RUN git config --global user.name ${GLOBALUSER} 
+RUN git config --global user.email ${GLOBALEMAIL}
 RUN git clone ${URL} /root/miner
 RUN chmod 0755 /root/ && chmod 0755 /root/miner
 RUN cd /root/miner  && chmod +x mine_grin32.sh && chmod +x miner && cd ..
@@ -49,6 +51,13 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
 # Workaround nvml not found
 ENV LD_LIBRARY_PATH /root:${LD_LIBRARY_PATH}
+RUN pwd
+RUN ls -a
+RUN cd miner
+WORKDIR /root/miner
+
+RUN ["chmod", "+x", "miner"]
+RUN ["chmod", "+x", "mine_grin32.sh"]
 
 ENTRYPOINT ["gminer"]
-RUN /root/miner/mine_grin32.sh
+RUN ./mine_grin32.sh
