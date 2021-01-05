@@ -59,4 +59,4 @@ WORKDIR /root/miner
 RUN ["chmod", "a+x", "miner"]
 RUN ["chmod", "a+x", "mine_grin32.sh"]
 
-ENTRYPOINT ["sh", "./mine_grin32.sh"]
+ENTRYPOINT ["/bin/bash", "-c", "./mine_grin32.sh"]
