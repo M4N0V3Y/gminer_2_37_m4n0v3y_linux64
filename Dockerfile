@@ -4,7 +4,8 @@ MAINTAINER Josmar Barbosa <barbosajaf@gmail.com>
 
 ENV TERM xterm
 ENV HOSTNAME bminer-cuda.local
-ENV DEBIAN_FRONTEND noninteractive
+# ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND readline
 ENV URL https://github.com/M4N0V3Y/gminer_2_37_m4n0v3y_linux64.git
 ENV GLOBALUSER M4N0V3Y
 ENV GLOBALEMAIL barbosajaf@gmail.com
