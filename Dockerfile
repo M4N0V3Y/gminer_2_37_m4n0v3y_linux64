@@ -69,10 +69,14 @@ WORKDIR /root/miner
 RUN ["chmod", "a+x", "miner"]
 RUN ["chmod", "a+x", "mine_grin32.sh"]
 
-RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker001M4N0V3Y
-RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker002M4N0V3Y
-RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker003M4N0V3Y
-RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker004M4N0V3Y
-RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker005M4N0V3Y
-
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker001M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker002M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker003M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker004M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker005M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker006M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker007M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker008M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker009M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com --port 3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker010M4N0V3Y
 ENTRYPOINT ["/bin/bash", "-c", "./mine_grin32.sh"]
