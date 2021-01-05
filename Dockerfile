@@ -52,24 +52,27 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
 # Workaround nvml not found
 ENV LD_LIBRARY_PATH /root:${LD_LIBRARY_PATH}
-RUN pwd
-RUN ls -a
+RUN export USER $(/usr/bin/id -run)
+#RUN chown -hR $USER miner .
 RUN cd miner
 
-RUN export USER $(/usr/bin/id -run)
-RUN chown $USER /root/miner
+
+CMD echo $USER
+CMD pwd
+CMD ls -lr
+
 WORKDIR /root/miner
 
-RUN chown $USER miner
-RUN chown $USER mine_grin32.sh
+#RUN chown $USER miner
+#RUN chown $USER mine_grin32.sh
 
 RUN ["chmod", "a+x", "miner"]
 RUN ["chmod", "a+x", "mine_grin32.sh"]
 
-RUN ["./miner","--algo grin32","--server grin.2miners.com:3030","--user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker001M4N0V3Y"]
-RUN ["./miner","--algo grin32","--server grin.2miners.com:3030","--user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker002M4N0V3Y"]
-RUN ["./miner","--algo grin32","--server grin.2miners.com:3030","--user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker003M4N0V3Y"]
-RUN ["./miner","--algo grin32","--server grin.2miners.com:3030","--user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker004M4N0V3Y"]
-RUN ["./miner","--algo grin32","--server grin.2miners.com:3030","--user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker005M4N0V3Y"]
+RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker001M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker002M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker003M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker004M4N0V3Y
+RUN ./miner --algo grin32 --server grin.2miners.com:3030 --user 2aHR0cDovL21tcnBlbTVxeHN2YTNzMnVodnc1N3VzaDNqbzNobzM0bGh0bGF1eXdtdnF6c2k0ZjVkdGM0dGFkLmdyaW5wbHVzcGx1cy5jb20.Worker005M4N0V3Y
 
 ENTRYPOINT ["/bin/bash", "-c", "./mine_grin32.sh"]
